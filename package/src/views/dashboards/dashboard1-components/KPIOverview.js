@@ -2,8 +2,6 @@
 // import { Card, CardContent, Typography, Box } from "@mui/material";
 // import Chart from 'react-apexcharts';
 
-
-
 // const SalesOverview = () => {
 //   const optionssalesoverview = {
 //     grid: {
@@ -103,10 +101,6 @@
 //       data: [280, 250, 325, 215, 250, 310, 280, 250, 325, 215, 250, 310],
 //     },
 //   ];
-
-
-
-
 
 //   return (
 //     <Card
@@ -221,13 +215,13 @@
 // export default SalesOverview;
 import React, { useState } from "react";
 import { Card, CardContent, Typography, Box, colors } from "@mui/material";
-import Chart from 'react-apexcharts';
+import Chart from "react-apexcharts";
 import { CheckboxesAutocomplete } from "../../../components/Forms/AutoComplete/CheckboxesAutocomplete";
 
 const KPIOverview = () => {
   const optionssalesoverview = {
     labels: ["Completed", "Not Completed"],
-    colors: ["#1a97f5", "#a7e3f4"],
+    colors: ["#1a97f5", "#52C7EB"],
     chart: {
       toolbar: {
         show: false,
@@ -238,9 +232,11 @@ const KPIOverview = () => {
     dataLabels: {
       enabled: true,
       style: {
-        fontSize: '12px',
+        fontSize: "12px",
       },
-
+      formatter: function (val, opts) {
+        return `${val}%`;
+      },
     },
     legend: {
       show: false,
@@ -256,7 +252,13 @@ const KPIOverview = () => {
     },
   };
 
-  const seriessalesoverview = [[80, 20], [70, 30], [25, 75], [60, 40], [90, 10]];
+  const seriessalesoverview = [
+    [80, 20],
+    [70, 30],
+    [25, 75],
+    [60, 40],
+    [90, 10],
+  ];
   const seriesDiscription = [
     { title: "Work" },
     { title: "Social Activities" },
@@ -381,27 +383,28 @@ const KPIOverview = () => {
             justifyContent: "space-between",
           }}
         >
-          {seriessalesoverview.map((series, index) => (
-            selectedKPIs.includes(index) && (
-              <Box
-                key={index}
-                sx={{
-                  display: "flex-column",
-                  alignItems: "center",
-                }}
-              >
-                <Chart
-                  options={optionssalesoverview}
-                  series={series}
-                  type="pie"
-                  height="200px"
-                />
-                <Typography variant="body1" align="center">
-                  {seriesDiscription[index].title}
-                </Typography>
-              </Box>
-            )
-          ))}
+          {seriessalesoverview.map(
+            (series, index) =>
+              selectedKPIs.includes(index) && (
+                <Box
+                  key={index}
+                  sx={{
+                    display: "flex-column",
+                    alignItems: "center",
+                  }}
+                >
+                  <Chart
+                    options={optionssalesoverview}
+                    series={series}
+                    type="pie"
+                    height="230px"
+                  />
+                  <Typography variant="body1" align="center">
+                    {seriesDiscription[index].title}
+                  </Typography>
+                </Box>
+              )
+          )}
         </Box>
       </CardContent>
     </Card>

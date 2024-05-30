@@ -100,7 +100,7 @@ function ChatScreen({ chatLog = [], insertChat }) {
         border: "1px solid #4e4e4e",
         borderRadius: "30px 30px 0 30px",
         display: "flex",
-        padding: "2%",
+        padding: "0 2% 2% 2%",
         marginRight: "2%",
         zIndex: 5000,
       }}
@@ -122,7 +122,7 @@ function ChatScreen({ chatLog = [], insertChat }) {
           }}
           onSubmit={handleSubmit}
         >
-          <TextField name="message" label="Gửi tin nhắn" size="small" />
+          <TextField name="message" label="Send a message" size="small" />
           <Button type="submit" variant="contained" color="primary">
             <SendIcon />
           </Button>
@@ -203,6 +203,7 @@ function ChatScreen({ chatLog = [], insertChat }) {
           ))}
           <div ref={bottomRef} />
         </div>
+        <Typography style={{ paddingTop: "5%" }}>AI Assistant</Typography>
       </div>
     </div>
   );
