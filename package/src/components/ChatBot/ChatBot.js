@@ -5,14 +5,13 @@ import AddIcon from "@mui/icons-material/Add";
 import EditIcon from "@mui/icons-material/Edit";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import NavigationIcon from "@mui/icons-material/Navigation";
-
+import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 
 import TextField from "@mui/material/TextField";
 import SendIcon from "@mui/icons-material/Send";
 import agentLogo from "../../assets/images/chatbot/agent.png";
 import avatar from "../../assets/images/users/tht.jpg";
-import sendLogo from "../../assets/images/chatbot/send-icon.svg";
 export default function ChatBot() {
   const [showChat, setShowChat] = React.useState(false);
   const [chatLog, setChatLog] = React.useState([]);
@@ -31,7 +30,12 @@ export default function ChatBot() {
       <Fab
         color="primary"
         aria-label="add"
-        style={{ position: "fixed", bottom: "20px", right: "20px" }}
+        style={{
+          position: "fixed",
+          bottom: "20px",
+          right: "20px",
+          zIndex: 5001,
+        }}
         onClick={handleFabClick}
       >
         AI
@@ -51,10 +55,11 @@ function ChatScreen({ chatLog = [], insertChat }) {
     bottomRef.current.scrollIntoView({ behavior: "smooth" });
     e.target.message.value = "";
     // set a timeout to simulate the AI response
-    setTimeout(async () => {
-      await insertChat("Hello, how can I help you?", false);
-      bottomRef.current.scrollIntoView({ behavior: "smooth" });
-    }, 2000);
+    await insertChat(
+      "Xin chào, tôi có thể giúp gì được cho bạn? Bạn có thể sử dụng các yêu cầu được gợi ý.",
+      false
+    );
+    bottomRef.current.scrollIntoView({ behavior: "smooth" });
   };
   const defaultHandlerGenerator = (message, response) => {
     const handleChat = async (e) => {
@@ -80,7 +85,7 @@ function ChatScreen({ chatLog = [], insertChat }) {
     {
       message: "Sắp tới có những KPI nào đến hạn?",
       response:
-        "Tuần sau (từ ngày 3/6/2024 đến 9/6/2024) bạn có những hạn cuối sau (sắp xếp theo độ ưu tiên từ cao đến thấp):\n- Hoàn thành KPI số giờ phục vụ trong tháng 5 \n- Chuẩn bị cho công bố khoa học để hoàn thành 80% KPI nghiên cứu \n",
+        "Tuần sau (từ ngày 3/6/2024 đến 9/6/2024) bạn có những hạn cuối sau (sắp xếp theo độ ưu tiên từ cao đến thấp):\n- Hoàn thành KPI số giờ phục vụ trong tháng 5 \n- Chuẩn bị cho công bố khoa học để hoàn thành 80% KPI nghiên cứu",
     },
   ];
   // Your chat screen implementation
@@ -91,13 +96,14 @@ function ChatScreen({ chatLog = [], insertChat }) {
         bottom: "70px",
         right: "20px",
         width: "300px",
-        height: "400px",
+        height: "500px",
         backgroundColor: "white",
-        border: "1px solid black",
+        border: "1px solid #4e4e4e",
         borderRadius: "30px 30px 0 30px",
         display: "flex",
         padding: "2%",
         marginRight: "2%",
+        zIndex: 5000,
       }}
     >
       <div
@@ -172,27 +178,26 @@ function ChatScreen({ chatLog = [], insertChat }) {
                   flexDirection: "column",
                   textAlign: "left",
                   gap: "2px",
-                  padding: "3px 3px 0px 0px",
+                  padding: "5%",
                   backgroundColor: chat.isUser ? "lightblue" : "white",
-                  border: "1px solid black",
                   borderRadius: chat.isUser
-                    ? "30px 0 30px 30px"
-                    : "0 30px 30px 30px",
-                  width: "66.66%",
+                    ? "10px 0 10px 10px"
+                    : "0 10px 10px 10px",
+                  width: "50%%",
                   height: "fit-content",
                   marginTop: "8px",
                   ...(chat.isUser
                     ? { backgroundColor: "#1A97F5", color: "white" }
-                    : { backgroundColor: "white", color: "black" }),
+                    : { backgroundColor: "#A7E3F470", color: "black" }),
                 }}
               >
                 {chat.text.split("\n").map((line, index) => (
-                  <p
+                  <Typography
                     key={index}
                     style={{ fontSize: "small", wordBreak: "normal" }}
                   >
                     {line}
-                  </p>
+                  </Typography>
                 ))}
               </div>
             </div>
