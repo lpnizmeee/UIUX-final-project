@@ -14,8 +14,8 @@ const assignmentList = [
                 id: "1",
                 name: "Number of Theory hours",
                 quantity: "2/20",
-                status: "Low",
-                pbg: "error.main",
+                status: "High",
+                pbg: "success.main",
                 unit: "Hour",
             },
             {

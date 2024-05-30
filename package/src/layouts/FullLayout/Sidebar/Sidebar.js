@@ -9,6 +9,7 @@ import {
   ListItem,
   ListItemIcon,
   ListItemText,
+  Typography,
 } from "@mui/material";
 import { SidebarWidth } from "../../../assets/global/Theme-variable";
 import LogoIcon from "../Logo/LogoIcon";
@@ -18,6 +19,9 @@ const Sidebar = (props) => {
   const [open, setOpen] = React.useState(true);
   const { pathname } = useLocation();
   const pathDirect = pathname;
+  const [devMode, setDevMode] = React.useState(false);
+  const [clickCount, setClickCount] = React.useState(0);
+  const n = 5; // replace with your desired number of clicks
   const lgUp = useMediaQuery((theme) => theme.breakpoints.up("lg"));
 
   const handleClick = (index) => {
@@ -44,7 +48,14 @@ const Sidebar = (props) => {
         >
           {Menuitems.map((item, index) => {
             //{/********SubHeader**********/}
-
+            if (
+              item.title !== "Dashboard" &&
+              item.title !== "KPI" &&
+              item.title !== "Setting" &&
+              !devMode
+            ) {
+              return null;
+            }
             return (
               <List component="li" disablePadding key={item.title}>
                 <ListItem
@@ -76,7 +87,19 @@ const Sidebar = (props) => {
           })}
         </List>
       </Box>
-      {/* <Buynow /> */}
+      <Typography
+        style={{ position: "fixed", bottom: "10px", left: "20px" }}
+        onClick={() => {
+          setClickCount((prev) => prev + 1);
+          if (clickCount >= n - 1) {
+            setDevMode((prev) => !prev);
+            setClickCount(0); // reset the click count
+          }
+        }}
+        color="#f0f0f0"
+      >
+        DevMode
+      </Typography>
     </Box>
   );
   if (lgUp) {

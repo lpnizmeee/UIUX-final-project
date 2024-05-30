@@ -27,7 +27,8 @@ const AddKPI = lazy(() => import("../views/kpi/AddKPI.js"));
 const Personal = lazy(() => import("../views/personal/Personal.js"));
 const KPIFake = lazy(() => import("../views/kpi/KPIFake.js"));
 const KPIDetail = lazy(() => import("../views/kpi/KPIDetail.js"));
-
+const Setting = lazy(() => import("../views/Setting/Setting.js"));
+const UpdateProgress = lazy(() => import("../views/update-progress/UpdateProgress.js"));
 /*****Routes******/
 
 const ThemeRoutes = [
@@ -46,11 +47,16 @@ const ThemeRoutes = [
       { path: "/form-elements/slider", element: <ExSlider /> },
       { path: "/form-elements/switch", element: <ExSwitch /> },
       { path: "/kpi", element: <KPI /> },
+<<<<<<< HEAD
       { path: "/setting", element: <></> },
+=======
+      { path: "/setting", element: <Setting /> },
       { path: "/update-progress", element: <></> },
+>>>>>>> refs/remotes/origin/main
       { path: "/kpi/add-kpi", element: <AddKPI /> },
       { path: "/kpi/add-success", element: <KPIFake /> },
       { path: "/kpi/detail", element: <KPIDetail /> },
+      { path: "/update-progress", element: <UpdateProgress /> },
       { path: "/personal", element: <Personal /> }
     ],
   },
