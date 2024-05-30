@@ -24,6 +24,7 @@ const ExSwitch = lazy(() => import("../views/FormElements/ExSwitch.js"));
 const FormLayouts = lazy(() => import("../views/FormLayouts/FormLayouts.js"));
 const KPI = lazy(() => import("../views/kpi/KPI.js"));
 const AddKPI = lazy(() => import("../views/kpi/AddKPI.js"));
+const KPIFake = lazy(() => import("../views/kpi/KPIFake.js"));
 
 /*****Routes******/
 
@@ -46,6 +47,7 @@ const ThemeRoutes = [
       { path: "/setting", element: <></> },
       { path: "/update-progress", element: <></> },
       { path: "/kpi/add-kpi", element: <AddKPI /> },
+      { path: "/kpi/add-success", element: <KPIFake /> },
     ],
   },
 ];
