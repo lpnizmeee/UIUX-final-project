@@ -10,6 +10,7 @@ import Header from "./Header/Header";
 import Sidebar from "./Sidebar/Sidebar";
 import Footer from "./Footer/Footer";
 import { TopbarHeight } from "../../assets/global/Theme-variable";
+import ChatBot from "../../components/ChatBot/ChatBot";
 
 const MainWrapper = experimentalStyled("div")(({ theme }) => ({
   display: "flex",
@@ -66,6 +67,7 @@ const FullLayout = () => {
           </Box>
           <Footer />
         </Container>
+        <ChatBot />
       </PageWrapper>
     </MainWrapper>
   );
