@@ -37,6 +37,7 @@ const FullLayout = () => {
   const [isSidebarOpen, setSidebarOpen] = useState(true);
   const [isMobileSidebarOpen, setMobileSidebarOpen] = useState(false);
   const lgUp = useMediaQuery((theme) => theme.breakpoints.up("lg"));
+  const [showChat, setShowChat] = React.useState(false);
   return (
     <MainWrapper>
       <Header
@@ -61,13 +62,16 @@ const FullLayout = () => {
             paddingTop: "20px",
             paddingLeft: isSidebarOpen && lgUp ? "280px!important" : "",
           }}
+          onClick={() => {
+            setShowChat(false);
+          }}
         >
           <Box sx={{ minHeight: "calc(100vh - 170px)" }}>
             <Outlet />
           </Box>
           <Footer />
         </Container>
-        <ChatBot />
+        <ChatBot showChat={showChat} setShowChat={setShowChat} />
       </PageWrapper>
     </MainWrapper>
   );
