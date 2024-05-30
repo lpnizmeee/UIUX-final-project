@@ -1,5 +1,5 @@
 import React from "react";
-//import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 import MenuOutlinedIcon from '@mui/icons-material/MenuOutlined';
 import NotificationsNoneOutlinedIcon from '@mui/icons-material/NotificationsNoneOutlined';
@@ -272,23 +272,25 @@ const Header = (props) => {
             },
           }}
         >
-          <MenuItem onClick={handleClose4}>
-            <Avatar
-              src={tht}
-              alt={tht}
-              sx={{
-                width: "35px",
-                height: "35px",
-              }}
-            />
-            <Box
-              sx={{
-                ml: 2,
-              }}
-            >
-              My account
-            </Box>
-          </MenuItem>
+          <Link to="/personal" style={{ color: 'inherit', textDecoration: 'none' }}>
+            <MenuItem onClick={handleClose4}>
+              <Avatar
+                src={tht}
+                alt={tht}
+                sx={{
+                  width: "35px",
+                  height: "35px",
+                }}
+              />
+              <Box
+                sx={{
+                  ml: 2,
+                }}
+              >
+                My account
+              </Box>
+            </MenuItem>
+          </Link>
           <Divider />
           <MenuItem onClick={handleClose4}>
             <ListItemIcon>

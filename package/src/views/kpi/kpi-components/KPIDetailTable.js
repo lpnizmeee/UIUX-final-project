@@ -33,7 +33,7 @@ const KPIDetailTable = (props) => {
                     </TableCell>
                     <TableCell style={{ width: '15%' }}>
                         <Typography color="textSecondary" variant="h6">
-                            Quantity done
+                            Quantity status
                         </Typography>
                     </TableCell>
                     <TableCell style={{ width: '15%' }}>
@@ -43,7 +43,7 @@ const KPIDetailTable = (props) => {
                     </TableCell>
                     <TableCell align="right" style={{ width: '10%' }}>
                         <Typography color="textSecondary" variant="h6">
-                            Status
+                            Priority
                         </Typography>
                     </TableCell>
                 </TableRow>
