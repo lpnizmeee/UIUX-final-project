@@ -47,12 +47,7 @@ const ThemeRoutes = [
       { path: "/form-elements/slider", element: <ExSlider /> },
       { path: "/form-elements/switch", element: <ExSwitch /> },
       { path: "/kpi", element: <KPI /> },
-<<<<<<< HEAD
-      { path: "/setting", element: <></> },
-=======
       { path: "/setting", element: <Setting /> },
-      { path: "/update-progress", element: <></> },
->>>>>>> refs/remotes/origin/main
       { path: "/kpi/add-kpi", element: <AddKPI /> },
       { path: "/kpi/add-success", element: <KPIFake /> },
       { path: "/kpi/detail", element: <KPIDetail /> },
