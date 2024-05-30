@@ -12,7 +12,7 @@ const Information = ({ title, data }) => {
                 alignItems: 'center',
             }}
         >
-            <Typography variant={font_size} sx={{ fontWeight: 'bold' }}>{title} :</Typography>
+            <Typography variant={font_size} sx={{ fontWeight: 'bold' }}>{title}:</Typography>
             <Typography variant={font_size}
                 sx={{
                     m: 2,
