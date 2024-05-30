@@ -52,6 +52,7 @@ const Sidebar = (props) => {
               item.title !== "Dashboard" &&
               item.title !== "KPI" &&
               item.title !== "Setting" &&
+              item.title !== "Update progress" &&
               !devMode
             ) {
               return null;
