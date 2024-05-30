@@ -221,7 +221,7 @@ import { CheckboxesAutocomplete } from "../../../components/Forms/AutoComplete/C
 const KPIOverview = () => {
   const optionssalesoverview = {
     labels: ["Completed", "Not Completed"],
-    colors: ["#1a97f5", "#52C7EB"],
+    colors: ["#1a97f5", "#a7e3f4"],
     chart: {
       toolbar: {
         show: false,
