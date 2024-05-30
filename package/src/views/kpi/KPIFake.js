@@ -7,6 +7,7 @@ import Fab from "@mui/material/Fab";
 import AddIcon from "@mui/icons-material/Add";
 import Chip from "@mui/material/Chip";
 import NavigateNextIcon from '@mui/icons-material/NavigateNext';
+import { useNavigate } from 'react-router-dom';
 
 const KPIList = [
     {
@@ -19,20 +20,20 @@ const KPIList = [
         id: "2",
         title: "Social Activities",
         chiptitle: "Medium",
-        assignment: ["Vol", "Research", "Service"]
+        assignment: ["Volunteer", "Blood Donation"]
 
     },
     {
         id: "3",
         title: "House Chores",
         chiptitle: "Low",
-        assignment: ["Teaching", "Research", "Service"]
+        assignment: ["House Cleaning", "Cooking"]
     },
     {
         id: "4",
         title: "Charity",
         chiptitle: "Medium",
-        assignment: ["Teaching", "Research", "Service"]
+        assignment: ["Volunteer", "Fundraising"]
     },
     {
         id: "5",
@@ -43,6 +44,11 @@ const KPIList = [
 ]
 
 const KPIFake = () => {
+    const navigate = useNavigate();
+
+    const handleViewDetail = () => {
+        navigate('/kpi/detail');
+    }
     return (
         <Box>
             <Typography paddingLeft={2} variant="h3" sx={{ marginBottom: "0" }} gutterBottom>
@@ -80,6 +86,7 @@ const KPIFake = () => {
                                     color="primary"
                                     variant="extended"
                                     size="small"
+                                    onClick={handleViewDetail}
                                     sx={{
                                         mr: 1,
                                         mb: {
