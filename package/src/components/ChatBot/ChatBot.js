@@ -70,7 +70,7 @@ function ChatScreen({ chatLog = [], insertChat }) {
     {
       message: "Tôi nên làm gì hôm nay?",
       response:
-        "Hôm nay bạn nên hoàn thành sớm kế hoạch nghiên cứu sơ lược cho bài báo khoa học dự kiến gửi vào ngày 30/6",
+        "Hôm nay bạn nên hoàn thành sớm kế hoạch nghiên cứu sơ lược cho bài báo khoa học dự kiến công bố vào ngày 30/6",
     },
     {
       message: "Cho tôi xem tổng kết tuần trước?",
@@ -78,9 +78,9 @@ function ChatScreen({ chatLog = [], insertChat }) {
         "Trong tuần trước, bạn đã: \n- Hoàn thành 7 đầu việc, KPI trung bình đạt 80% \n- Đã có thêm 1 dự án mới \nHãy tiếp tục cố gắng nhé!",
     },
     {
-      message: "Sắp tới có những deadlines nào?",
+      message: "Sắp tới có những KPI nào đến hạn?",
       response:
-        "Tuần sau bạn có những deadlines sau (sắp xếp theo độ ưu tiên từ cao đến thấp):\n- Hoàn thành mẫu thử độ tin cậy cao cho môn UIUX \n- Hoàn thành bài tập lớn cho môn ITSS \n- Xây dựng mô hình AI cho môn Học máy \n",
+        "Tuần sau (từ ngày 3/6/2024 đến 9/6/2024) bạn có những hạn cuối sau (sắp xếp theo độ ưu tiên từ cao đến thấp):\n- Hoàn thành KPI số giờ phục vụ trong tháng 5 \n- Chuẩn bị cho công bố khoa học để hoàn thành 80% KPI nghiên cứu \n",
     },
   ];
   // Your chat screen implementation
@@ -94,6 +94,7 @@ function ChatScreen({ chatLog = [], insertChat }) {
         height: "400px",
         backgroundColor: "white",
         border: "1px solid black",
+        borderRadius: "30px 30px 0 30px",
         display: "flex",
         padding: "2%",
         marginRight: "2%",
@@ -116,7 +117,7 @@ function ChatScreen({ chatLog = [], insertChat }) {
           }}
           onSubmit={handleSubmit}
         >
-          <TextField name="message" label="Message" size="small" />
+          <TextField name="message" label="Gửi tin nhắn" size="small" />
           <Button type="submit" variant="contained" color="primary">
             <SendIcon />
           </Button>
@@ -171,7 +172,7 @@ function ChatScreen({ chatLog = [], insertChat }) {
                   flexDirection: "column",
                   textAlign: "left",
                   gap: "2px",
-                  padding: "3px",
+                  padding: "3px 3px 0px 0px",
                   backgroundColor: chat.isUser ? "lightblue" : "white",
                   border: "1px solid black",
                   borderRadius: chat.isUser
@@ -181,7 +182,7 @@ function ChatScreen({ chatLog = [], insertChat }) {
                   height: "fit-content",
                   marginTop: "8px",
                   ...(chat.isUser
-                    ? { backgroundColor: "blue", color: "white" }
+                    ? { backgroundColor: "#1A97F5", color: "white" }
                     : { backgroundColor: "white", color: "black" }),
                 }}
               >
