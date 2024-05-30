@@ -72,19 +72,19 @@ function ChatScreen({ chatLog = [], insertChat }) {
   };
   const chatResponsePairs = [
     {
-      message: "Tôi nên làm gì hôm nay?",
+      message: "What should I do today?",
       response:
-        "Hôm nay bạn nên hoàn thành sớm kế hoạch nghiên cứu sơ lược cho bài báo khoa học dự kiến công bố vào ngày 30/6",
+        "You should probably complete the prerequisites research for the upcoming publication.",
     },
     {
-      message: "Cho tôi xem tổng kết tuần trước?",
+      message: "Show me last week's summary",
       response:
-        "Trong tuần trước, bạn đã: \n- Hoàn thành 7 đầu việc, KPI trung bình đạt 80% \n- Đã có thêm 1 dự án mới \nHãy tiếp tục cố gắng nhé!",
+        "Last week, you have: \n- Completed 7 tasks, average KPI achieved 80% \n- Got 1 new project \nKeep up the good work!",
     },
     {
-      message: "Sắp tới có những KPI nào đến hạn?",
+      message: "What are the upcoming deadlines?",
       response:
-        "Tuần sau (từ ngày 3/6/2024 đến 9/6/2024) bạn có những hạn cuối sau (sắp xếp theo độ ưu tiên từ cao đến thấp):\n- Hoàn thành KPI số giờ phục vụ trong tháng 5 \n- Chuẩn bị cho công bố khoa học để hoàn thành 80% KPI nghiên cứu",
+        "Next week (from 3/6/2024 to 9/6/2024) you have the following deadlines (sorted by priority from high to low):\n- Complete service hours KPI in May \n- Prepare for scientific publication to achieve 80% research KPI",
     },
   ];
   // Your chat screen implementation
