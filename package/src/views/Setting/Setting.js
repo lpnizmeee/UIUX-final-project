@@ -42,7 +42,7 @@ const Setting = () => {
 
   return (
     <Box>
-      <Grid container spacing={2} direction="column">
+      <Grid container spacing={2} direction="column" paddingLeft={2}>
         <Grid item>
           <Typography variant="h3" sx={{ marginBottom: "0" }} gutterBottom>
             <Link
