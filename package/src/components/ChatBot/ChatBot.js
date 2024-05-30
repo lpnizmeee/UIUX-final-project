@@ -12,8 +12,7 @@ import TextField from "@mui/material/TextField";
 import SendIcon from "@mui/icons-material/Send";
 import agentLogo from "../../assets/images/chatbot/agent.png";
 import avatar from "../../assets/images/users/tht.jpg";
-export default function ChatBot() {
-  const [showChat, setShowChat] = React.useState(false);
+export default function ChatBot({ showChat, setShowChat }) {
   const [chatLog, setChatLog] = React.useState([]);
   const insertChat = async (message, isUser) => {
     setChatLog((prev) => [
