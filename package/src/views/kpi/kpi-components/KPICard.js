@@ -31,7 +31,7 @@ const KPICard = (props) => {
                 width: "100%",
             }}
         >
-            <Box p={2} display="flex" alignItems="center" backgroundColor="#cacace">
+            <Box p={2} display="flex" alignItems="center" backgroundColor="#f4f4f8">
                 <Box>
                     <Typography variant="h5">{props.title}</Typography>
                 </Box>

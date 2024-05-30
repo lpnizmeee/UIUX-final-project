@@ -1,5 +1,6 @@
 import React from "react";
 import InputDateTime from "./InputDateTime";
+import { useNavigate } from 'react-router-dom';
 
 import {
     Card,
@@ -10,10 +11,27 @@ import {
     TextField,
     Button,
 } from "@mui/material";
+import AssignmentCheckbox from "./AssignmentCheckbox";
+
 
 
 const KPIForm = () => {
-    // const [AssignmentList, setAssignmentList] = React.useState([]);
+    const [AssignmentList, setAssignmentList] = React.useState([
+        { title: "Teaching" },
+        { title: "Research" },
+        { title: "Service" },
+        { title: "Volunteer" },
+        { title: "Workshop" },
+        { title: "Seminar" },
+        { title: "Conference" },
+        { title: "Training" },
+        { title: "House Cleaning" },
+    ]);
+    const navigate = useNavigate();
+
+    const handleCreate = () => {
+        navigate('/kpi/add-success');
+    }
 
     return (
         <div>
@@ -74,6 +92,9 @@ const KPIForm = () => {
                         <InputDateTime id={"start"} label={"Start time"} />
                         <InputDateTime id={"finish"} label={"Finish time"} />
                         <Box>
+                            <AssignmentCheckbox list={AssignmentList} title="Choose Assignment" />
+                        </Box>
+                        <Box>
                             <Button
                                 variant="outlined"
                                 color="success"
@@ -86,12 +107,13 @@ const KPIForm = () => {
                                     },
                                 }}
                             >
-                                + Add Assignment
+                                + Add orther Assignment
                             </Button>
                         </Box>
+
                         <div>
-                            <Button color="primary" variant="contained">
-                                Submit
+                            <Button color="primary" variant="contained" onClick={handleCreate}>
+                                Create
                             </Button>
                         </div>
                     </form>

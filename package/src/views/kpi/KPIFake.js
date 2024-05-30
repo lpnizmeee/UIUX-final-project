@@ -9,7 +9,6 @@ import Chip from "@mui/material/Chip";
 import NavigateNextIcon from '@mui/icons-material/NavigateNext';
 import { useNavigate } from 'react-router-dom';
 
-
 const KPIList = [
     {
         id: "1",
@@ -36,9 +35,15 @@ const KPIList = [
         chiptitle: "Medium",
         assignment: ["Volunteer", "Fundraising"]
     },
+    {
+        id: "5",
+        title: "Improve Knowledge",
+        chiptitle: "Low",
+        assignment: ["Workshop", "Training", "Conference"]
+    }
 ]
 
-const KPI = () => {
+const KPIFake = () => {
     const navigate = useNavigate();
 
     const handleViewDetail = () => {
@@ -143,4 +148,4 @@ const KPI = () => {
     );
 }
 
-export default KPI;
+export default KPIFake;
