@@ -10,7 +10,7 @@ import {
   Chip,
 } from "@mui/material";
 
-const assignment = [
+const assignmentex = [
   {
     id: "1",
     name: "Teaching",
@@ -26,7 +26,7 @@ const assignment = [
     post: "Public Paper",
     pname: "12/20",
     status: "Medium",
-    pbg: "secondary.main",
+    pbg: "warning.main",
     progress: "60",
   },
   {
@@ -40,7 +40,7 @@ const assignment = [
   },
 ];
 
-const ExTable = () => {
+const ExTable = ({ assignment = assignmentex }) => {
   return (
     <Table
       aria-label="simple table"
@@ -63,7 +63,7 @@ const ExTable = () => {
           </TableCell>
           <TableCell>
             <Typography color="textSecondary" variant="h6">
-              Quantity done
+              Quantity status
             </Typography>
           </TableCell>
           <TableCell>

@@ -5,6 +5,7 @@ import { Card, CardContent, Typography } from "@mui/material";
 import KPIDetailTable from "./kpi-components/KPIDetailTable";
 import Fab from "@mui/material/Fab";
 import AddToPhotosOutlinedIcon from "@mui/icons-material/AddToPhotosOutlined";
+import NavigateBeforeIcon from '@mui/icons-material/NavigateBefore';
 
 const assignmentList = [
     {
@@ -23,7 +24,7 @@ const assignmentList = [
                 name: "Number of Exercise hours",
                 quantity: "12/20",
                 status: "Medium",
-                pbg: "secondary.main",
+                pbg: "warning.main",
                 unit: "Hour",
             },
             {
@@ -60,7 +61,7 @@ const assignmentList = [
                 name: "State-level pilot production projects and topics",
                 quantity: "1/2",
                 status: "Medium",
-                pbg: "secondary.main",
+                pbg: "warning.main",
                 unit: "Project",
             },
         ]
@@ -94,8 +95,14 @@ const KPIDetail = () => {
     return (
         <Box>
             <Typography paddingLeft={2} variant="h3" sx={{ marginBottom: "0" }} gutterBottom>
-                <Link to="/kpi" style={{ color: 'inherit', textDecoration: 'none' }}>KPI</Link>
-                <Link to="/kpi/detail" style={{ color: 'inherit', textDecoration: 'none' }}> / Details</Link>
+                <Link to="/kpi" style={{ color: 'inherit', textDecoration: 'none' }}>
+                    <Box display="flex" alignItems="center">
+                        <NavigateBeforeIcon />
+                        KPI
+                        <NavigateBeforeIcon />
+                        Details
+                    </Box>
+                </Link>
             </Typography>
             <Box
                 sx={

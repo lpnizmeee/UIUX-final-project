@@ -15,7 +15,7 @@ const KPICard = (props) => {
             case 'high':
                 return 'success.main';
             case 'medium':
-                return 'secondary.main';
+                return 'warning.main';
             case 'low':
                 return 'error.main';
             default:

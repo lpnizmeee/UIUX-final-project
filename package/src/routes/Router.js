@@ -1,34 +1,22 @@
-import { lazy } from "react";
 import { Navigate } from "react-router-dom";
+import FullLayout from "../layouts/FullLayout/FullLayout.js";
+import Dashboard1 from "../views/dashboards/Dashboard1.js";
+import BasicTable from "../views/tables/BasicTable.js";
+import ExAutoComplete from "../views/FormElements/ExAutoComplete.js";
+import ExButton from "../views/FormElements/ExButton.js";
+import ExCheckbox from "../views/FormElements/ExCheckbox.js";
+import ExRadio from "../views/FormElements/ExRadio.js";
+import ExSlider from "../views/FormElements/ExSlider.js";
+import ExSwitch from "../views/FormElements/ExSwitch.js";
+import FormLayouts from "../views/FormLayouts/FormLayouts.js";
+import KPI from "../views/kpi/KPI.js";
+import AddKPI from "../views/kpi/AddKPI.js";
+import Personal from "../views/personal/Personal.js";
+import KPIFake from "../views/kpi/KPIFake.js";
+import KPIDetail from "../views/kpi/KPIDetail.js";
+import Setting from "../views/Setting/Setting.js";
+import UpdateProgress from "../views/update-progress/UpdateProgress.js";
 
-/****Layouts*****/
-const FullLayout = lazy(() => import("../layouts/FullLayout/FullLayout.js"));
-/****End Layouts*****/
-
-/*****Pages******/
-const Dashboard1 = lazy(() => import("../views/dashboards/Dashboard1.js"));
-
-/*****Tables******/
-const BasicTable = lazy(() => import("../views/tables/BasicTable.js"));
-
-// form elements
-const ExAutoComplete = lazy(() =>
-  import("../views/FormElements/ExAutoComplete.js")
-);
-const ExButton = lazy(() => import("../views/FormElements/ExButton.js"));
-const ExCheckbox = lazy(() => import("../views/FormElements/ExCheckbox.js"));
-const ExRadio = lazy(() => import("../views/FormElements/ExRadio.js"));
-const ExSlider = lazy(() => import("../views/FormElements/ExSlider.js"));
-const ExSwitch = lazy(() => import("../views/FormElements/ExSwitch.js"));
-// form layouts
-const FormLayouts = lazy(() => import("../views/FormLayouts/FormLayouts.js"));
-const KPI = lazy(() => import("../views/kpi/KPI.js"));
-const AddKPI = lazy(() => import("../views/kpi/AddKPI.js"));
-const Personal = lazy(() => import("../views/personal/Personal.js"));
-const KPIFake = lazy(() => import("../views/kpi/KPIFake.js"));
-const KPIDetail = lazy(() => import("../views/kpi/KPIDetail.js"));
-const Setting = lazy(() => import("../views/Setting/Setting.js"));
-const UpdateProgress = lazy(() => import("../views/update-progress/UpdateProgress.js"));
 /*****Routes******/
 
 const ThemeRoutes = [
