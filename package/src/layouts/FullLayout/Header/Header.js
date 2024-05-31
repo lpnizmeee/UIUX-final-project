@@ -160,7 +160,7 @@ const Header = (props) => {
         {/* ------------------------------------------- */}
         {/* Help Dropdown */}
         {/* ------------------------------------------- */}
-        <IconButton
+        {/* <IconButton
           aria-label="menu"
           color="inherit"
           aria-controls="help-menu"
@@ -168,7 +168,7 @@ const Header = (props) => {
           onClick={handleHelpClick}
         >
           <HelpOutlineOutlinedIcon width="20" height="20" />
-        </IconButton>
+        </IconButton> */}
 
 
 
@@ -292,19 +292,19 @@ const Header = (props) => {
             </MenuItem>
           </Link>
           <Divider />
-          <MenuItem onClick={handleClose4}>
-            <ListItemIcon>
-              <PersonAddOutlinedIcon fontSize="small" />
-            </ListItemIcon>
-            Add another account
-          </MenuItem>
-          <MenuItem onClick={handleClose4}>
+          <MenuItem onClick={() => {
+            window.location.href = "/#/setting";
+            handleClose4();
+
+          }}>
             <ListItemIcon>
               <SettingsOutlinedIcon fontSize="small" />
             </ListItemIcon>
             Settings
           </MenuItem>
-          <MenuItem onClick={handleClose4}>
+          <MenuItem onClick={() => {
+            window.location.href = "/#/login";
+          }}>
             <ListItemIcon>
               <LogoutOutlinedIcon fontSize="small" />
             </ListItemIcon>

@@ -5,6 +5,7 @@ import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import Information from "./personal-components/Information";
 
+
 import tht from "../../assets/images/users/tht_full.jpg";
 
 const avatar_radius = '300px'
@@ -12,14 +13,20 @@ const avatar_radius = '300px'
 const Personal = () => {
     return (
         <Box maxWidth="sm">
-            <Typography variant="h1" >Personal Information</Typography>
+            <Typography variant="h3" >Personal Information</Typography>
             <Container maxWidth='sm'
                 sx={{
                     m: 4,
                     mt: 8,
+                    ml: 2,
                     display: 'flex',
                     flexDirection: 'row',
                     alignItems: 'flex-start',
+                    '@media (max-width: 600px)': {
+                        flexDirection: 'column',
+                        alignItems: 'center',
+                        m: 0,
+                    }
                 }}>
                 <Box
                     sx={{
@@ -39,15 +46,6 @@ const Personal = () => {
                             marginBottom: '20px',
                         }}
                     />
-                    {/* <Box
-                        sx={{
-                            ml: 4,
-                        }}
-                    >
-                        <Link to="/" style={{ color: 'blue', textDecoration: 'none' }}>
-                            <Typography variant="h5">Change Avatar</Typography>
-                        </Link>
-                    </Box> */}
                 </Box>
                 <Box
                     sx={{

@@ -17,10 +17,14 @@ import KPIDetail from "../views/kpi/KPIDetail.js";
 import Setting from "../views/Setting/Setting.js";
 import UpdateProgress from "../views/update-progress/UpdateProgress.js";
 import KPIDetailFake from "../views/kpi/KPIDetailFake.js";
+import Login from "../views/login/LoginPage.js";
+import SignUp from "../views/signup/SignupPage.js";
 
 /*****Routes******/
 
 const ThemeRoutes = [
+  { path: "/login", element: <Login /> },
+  { path: "/signup", element: <SignUp /> },
   {
     path: "/",
     element: <FullLayout />,
