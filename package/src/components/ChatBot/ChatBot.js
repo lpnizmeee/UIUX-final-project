@@ -70,6 +70,9 @@ function ChatScreen({ chatLog = [], insertChat }) {
     };
     return handleChat;
   };
+  React.useEffect(() => {
+    bottomRef.current.scrollIntoView({ behavior: "smooth" });
+  }, []);
   const chatResponsePairs = [
     {
       message: "What should I do today?",
