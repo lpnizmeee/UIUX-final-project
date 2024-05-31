@@ -14,13 +14,13 @@ const localizer = momentLocalizer(moment);
 const UpdateProgress = (props) => {
     const [events, setEvents] = useState([
         {
-            'title': 'All Day Event very long title',
+            'title': 'Article published in domestic science magazine',
             'allDay': true,
             'start': new Date(2024, 4, 30),
             'end': new Date(2024, 4, 31)
         },
         {
-            'title': 'Long Event',
+            'title': 'Instruct Graduation Research',
             'start': new Date(2024, 4, 31),
             'end': new Date(2024, 5, 1)
         },
