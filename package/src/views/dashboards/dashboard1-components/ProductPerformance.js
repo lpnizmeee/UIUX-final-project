@@ -141,7 +141,7 @@ const ProductPerformance = () => {
               }}
               gutterBottom
             >
-              Assignment Performance
+              Performance
             </Typography>
           </Box>
 
