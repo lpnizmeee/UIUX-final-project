@@ -29,7 +29,7 @@ const ThemeRoutes = [
     path: "/",
     element: <FullLayout />,
     children: [
-      { path: "/", element: <Navigate to="dashboards" /> },
+      { path: "/", element: <Navigate to="/login" /> },
       { path: "dashboards", exact: true, element: <Dashboard1 /> },
       { path: "tables/basic-table", element: <BasicTable /> },
       { path: "/form-layouts/form-layouts", element: <FormLayouts /> },
@@ -46,7 +46,7 @@ const ThemeRoutes = [
       { path: "/kpi/detail", element: <KPIDetail /> },
       { path: "/update-progress", element: <UpdateProgress /> },
       { path: "/personal", element: <Personal /> },
-      { path: "/kpi/detail-add", element: <KPIDetailFake /> }
+      { path: "/kpi/detail-add", element: <KPIDetailFake /> },
     ],
   },
 ];
