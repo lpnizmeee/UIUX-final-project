@@ -55,7 +55,7 @@ function ChatScreen({ chatLog = [], insertChat }) {
     e.target.message.value = "";
     // set a timeout to simulate the AI response
     await insertChat(
-      "Xin chào, tôi có thể giúp gì được cho bạn? Bạn có thể sử dụng các yêu cầu được gợi ý.",
+      "Hello, how can I help you? You can use the suggested requests.",
       false
     );
     bottomRef.current.scrollIntoView({ behavior: "smooth" });
@@ -71,7 +71,7 @@ function ChatScreen({ chatLog = [], insertChat }) {
     return handleChat;
   };
   React.useEffect(() => {
-    bottomRef.current.scrollIntoView({ behavior: "smooth" });
+    bottomRef.current.scrollIntoView({ behavior: "auto" });
   }, []);
   const chatResponsePairs = [
     {
@@ -89,6 +89,16 @@ function ChatScreen({ chatLog = [], insertChat }) {
       response:
         "Next week (from 3/6/2024 to 9/6/2024) you have the following deadlines (sorted by priority from high to low):\n- Complete service hours KPI in May \n- Prepare for scientific publication to achieve 80% research KPI",
     },
+    {
+      message: "I'm a new user, how can I get started?",
+      response:
+        "Welcome! You can start by adding a new KPI by clicking the \"KPI\" screen on the left sidebar, then press the '+' button to add a new KPI. If you have any questions, feel free to ask me",
+    },
+    {
+      message: "How does the KPI progress updated?",
+      response:
+        "The KPI progress is updated automatically based on the data in 'Update progress' tab",
+    }
   ];
   // Your chat screen implementation
   return (

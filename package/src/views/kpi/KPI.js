@@ -102,7 +102,7 @@ const KPI = () => {
                                 <Box
                                     sx={{
                                         display: "flex",
-                                        justifyContent: "flex-end",
+                                        justifyContent: "space-around",
 
                                     }}>
                                     <Fab
@@ -191,11 +191,20 @@ const KPI = () => {
                         <Box
                             sx={{
                                 textAlign: "center",
+                                paddingTop: "2rem",
                             }}
                         >
-                            <Link to="/kpi/add-kpi" style={{ textDecoration: 'none' }}>
-                                <Fab
+                            <Link to="/kpi/add-kpi" style={{ textDecoration: 'none' }}
+                            >
+                                <Button
                                     color="primary"
+                                    variant="contained"
+                                    style={{
+                                        borderRadius: '100%',
+                                        height: '75px',
+                                        width: '75px',
+                                        padding: 0,
+                                    }}
                                     sx={{
                                         mr: 1,
                                         mb: {
@@ -206,7 +215,7 @@ const KPI = () => {
                                     }}
                                 >
                                     <AddIcon />
-                                </Fab>
+                                </Button>
                             </Link>
                         </Box>
                     </KPICard>
