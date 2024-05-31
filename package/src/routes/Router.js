@@ -16,6 +16,7 @@ import KPIFake from "../views/kpi/KPIFake.js";
 import KPIDetail from "../views/kpi/KPIDetail.js";
 import Setting from "../views/Setting/Setting.js";
 import UpdateProgress from "../views/update-progress/UpdateProgress.js";
+import KPIDetailFake from "../views/kpi/KPIDetailFake.js";
 
 /*****Routes******/
 
@@ -40,7 +41,8 @@ const ThemeRoutes = [
       { path: "/kpi/add-success", element: <KPIFake /> },
       { path: "/kpi/detail", element: <KPIDetail /> },
       { path: "/update-progress", element: <UpdateProgress /> },
-      { path: "/personal", element: <Personal /> }
+      { path: "/personal", element: <Personal /> },
+      { path: "/kpi/detail-add", element: <KPIDetailFake /> }
     ],
   },
 ];

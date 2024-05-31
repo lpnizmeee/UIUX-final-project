@@ -40,6 +40,14 @@ const assignmentList = [
                 pbg: "success.main",
                 unit: "Hour",
             },
+            {
+                id: "4",
+                name: "Number of Experiment hours",
+                quantity: "0/10",
+                status: "Low",
+                pbg: "error.main",
+                unit: "Hour",
+            },
         ]
     },
     {
@@ -215,11 +223,11 @@ const KPIDetail = () => {
                                                         sx={{
                                                             pl: "4px",
                                                             pr: "4px",
-                                                            backgroundColor: "error.main",
+                                                            backgroundColor: "success.main",
                                                             color: "#fff",
                                                         }}
                                                         size="small"
-                                                        label={"Low"}
+                                                        label={"High"}
                                                     ></Chip>
                                                 </TableCell>
                                             </TableRow>
