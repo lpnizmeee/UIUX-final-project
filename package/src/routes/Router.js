@@ -19,6 +19,7 @@ import UpdateProgress from "../views/update-progress/UpdateProgress.js";
 import KPIDetailFake from "../views/kpi/KPIDetailFake.js";
 import Login from "../views/login/LoginPage.js";
 import SignUp from "../views/signup/SignupPage.js";
+import AddAssignment from "../views/kpi/AddAssignment.js";
 
 /*****Routes******/
 
@@ -47,6 +48,7 @@ const ThemeRoutes = [
       { path: "/update-progress", element: <UpdateProgress /> },
       { path: "/personal", element: <Personal /> },
       { path: "/kpi/detail-add", element: <KPIDetailFake /> },
+      { path: "/kpi/add-assignment", element: <AddAssignment /> },
     ],
   },
 ];

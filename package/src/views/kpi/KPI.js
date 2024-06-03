@@ -5,11 +5,26 @@ import { Link } from 'react-router-dom';
 import { Box } from "@mui/system";
 import KPICard from "./kpi-components/KPICard";
 import Fab from "@mui/material/Fab";
-import AddIcon from "@mui/icons-material/Add";
+import ControlPointIcon from '@mui/icons-material/ControlPoint';
 import Chip from "@mui/material/Chip";
 import NavigateNextIcon from '@mui/icons-material/NavigateNext';
 import { useNavigate } from 'react-router-dom';
 import DeleteIcon from '@mui/icons-material/Delete';
+import CloudUploadIcon from '@mui/icons-material/CloudUpload';
+import { styled } from '@mui/material/styles';
+
+
+const VisuallyHiddenInput = styled('input')({
+    clip: 'rect(0 0 0 0)',
+    clipPath: 'inset(50%)',
+    height: 1,
+    overflow: 'hidden',
+    position: 'absolute',
+    bottom: 0,
+    left: 0,
+    whiteSpace: 'nowrap',
+    width: 1,
+});
 
 
 const initialKPIList = [
@@ -43,13 +58,17 @@ const initialKPIList = [
 const KPI = () => {
     const [KPIList, setKPIList] = useState(initialKPIList);
     const navigate = useNavigate();
+    const [open, setOpen] = useState(false);
+    const [toBeDeletedId, setToBeDeletedId] = useState(null);
+
+    const handleFileUpload = (event) => {
+        navigate('/kpi/add-kpi');
+    }
 
     const handleViewDetail = () => {
         navigate('/kpi/detail');
     }
 
-    const [open, setOpen] = useState(false);
-    const [toBeDeletedId, setToBeDeletedId] = useState(null);
 
     const handleClickOpen = (id) => {
         setToBeDeletedId(id);
@@ -72,6 +91,63 @@ const KPI = () => {
                 <Link to="/kpi" style={{ color: 'inherit', textDecoration: 'none' }}>KPI</Link>
             </Typography>
             <Grid container spacing={0}>
+                <Grid
+                    item xs={12}
+                    lg={4}
+                    sm={6}
+                    sx={{
+                        display: "flex",
+                        alignItems: "stretch",
+                    }}
+                >
+                    <KPICard title="Add new KPI">
+                        <Box
+                            sx={{
+                                textAlign: "center",
+                            }}
+                        >
+                            <Link to="/kpi/add-kpi" style={{ textDecoration: 'none' }}
+                            >
+                                <Button
+                                    color="primary"
+                                    variant="contained"
+                                    sx={{
+                                        mt: 1,
+                                        mb: {
+                                            xs: 1,
+                                            sm: 0,
+                                            lg: 0,
+                                        },
+                                    }}
+                                >
+                                    <ControlPointIcon />
+                                    <Typography> New KPI</Typography>
+                                </Button>
+                            </Link>
+                        </Box>
+                        <Typography sx={{
+                            textAlign: "center",
+                            paddingTop: "1rem",
+                        }}>
+                            ----OR----
+                        </Typography>
+                        <Box sx={{
+                            textAlign: "center",
+                            paddingTop: "1rem",
+                        }}>
+                            <Button
+                                component="label"
+                                role={undefined}
+                                variant="contained"
+                                tabIndex={-1}
+                                startIcon={<CloudUploadIcon />}
+                            >
+                                <Typography color="">Upload file</Typography>
+                                <VisuallyHiddenInput type="file" onChange={handleFileUpload} />
+                            </Button>
+                        </Box>
+                    </KPICard>
+                </Grid>
                 {KPIList.map((kpi) => (
                     <Grid
                         item
@@ -178,48 +254,6 @@ const KPI = () => {
                         </KPICard>
                     </Grid>
                 ))}
-                <Grid
-                    item xs={12}
-                    lg={4}
-                    sm={6}
-                    sx={{
-                        display: "flex",
-                        alignItems: "stretch",
-                    }}
-                >
-                    <KPICard title="Add new KPI">
-                        <Box
-                            sx={{
-                                textAlign: "center",
-                                paddingTop: "2rem",
-                            }}
-                        >
-                            <Link to="/kpi/add-kpi" style={{ textDecoration: 'none' }}
-                            >
-                                <Button
-                                    color="primary"
-                                    variant="contained"
-                                    style={{
-                                        borderRadius: '100%',
-                                        height: '75px',
-                                        width: '75px',
-                                        padding: 0,
-                                    }}
-                                    sx={{
-                                        mr: 1,
-                                        mb: {
-                                            xs: 1,
-                                            sm: 0,
-                                            lg: 0,
-                                        },
-                                    }}
-                                >
-                                    <AddIcon />
-                                </Button>
-                            </Link>
-                        </Box>
-                    </KPICard>
-                </Grid>
             </Grid>
         </Box>
     );
