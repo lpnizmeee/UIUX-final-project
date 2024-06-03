@@ -28,6 +28,7 @@ const actions = [
 
 const assignmentList = [
     {
+        id: "1",
         name: "Teaching",
         tasks: [
             {
@@ -65,6 +66,7 @@ const assignmentList = [
         ]
     },
     {
+        id: "2",
         name: "Research",
         tasks: [
             {
@@ -94,6 +96,7 @@ const assignmentList = [
         ]
     },
     {
+        id: "3",
         name: "Service",
         tasks: [
             {
@@ -117,9 +120,17 @@ const assignmentList = [
 
 ]
 
+const priorities = [
+    { label: 'Low', color: 'error.main', hoverColor: 'error.dark' },
+    { label: 'Medium', color: 'warning.main', hoverColor: 'warning.dark' },
+    { label: 'High', color: 'success.main', hoverColor: 'success.dark' },
+];
+
 
 const KPIDetail = () => {
-    const [open, setOpen] = useState(false);
+    const [openAssignmentId, setOpenAssignmentId] = useState(null);
+    const [priorityIndex, setPriorityIndex] = useState(0);
+
     const navigate = useNavigate();
 
     const handleActionClick = (actionName) => {
@@ -143,13 +154,18 @@ const KPIDetail = () => {
         }
     };
 
-    const handleAddNewTask = () => {
-        setOpen(true);
+
+    const handleAddNewTask = (id) => {
+        setOpenAssignmentId(id);
     }
 
     const handleSubmit = () => {
         navigate('/kpi/detail-add');
     }
+
+    const handlePriorityChange = () => {
+        setPriorityIndex((priorityIndex + 1) % priorities.length);
+    };
 
     return (
         <Box>
@@ -189,7 +205,7 @@ const KPIDetail = () => {
                     ))}
                 </SpeedDial>
             </Box>
-            {assignmentList.map((assignment) => (
+            {assignmentList.map((assignment, index) => (
                 <Card variant="outlined">
                     <CardContent>
                         <Typography variant="h3">
@@ -206,7 +222,7 @@ const KPIDetail = () => {
                                             lg: 0,
                                         },
                                     }}
-                                    onClick={handleAddNewTask}
+                                    onClick={() => handleAddNewTask(assignment.id)}
                                 >
                                     <AddIcon />
                                 </Fab>
@@ -222,7 +238,7 @@ const KPIDetail = () => {
                         >
                             <Box>
                                 <KPIDetailTable list={assignment} />
-                                {open && (
+                                {openAssignmentId === assignment.id && (
                                     <Table
                                         aria-label="simple table"
                                         sx={{
@@ -261,11 +277,15 @@ const KPIDetail = () => {
                                                         sx={{
                                                             pl: "4px",
                                                             pr: "4px",
-                                                            backgroundColor: "error.main",
+                                                            backgroundColor: priorities[priorityIndex].color,
                                                             color: "#fff",
+                                                            '&:hover': {
+                                                                backgroundColor: priorities[priorityIndex].hoverColor,
+                                                            },
                                                         }}
+                                                        onClick={handlePriorityChange}
                                                         size="small"
-                                                        label={"Low"}
+                                                        label={priorities[priorityIndex].label}
                                                     ></Chip>
                                                 </TableCell>
                                             </TableRow>
