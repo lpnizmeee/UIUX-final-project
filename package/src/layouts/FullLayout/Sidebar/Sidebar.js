@@ -60,7 +60,12 @@ const Sidebar = (props) => {
             return (
               <List component="li" disablePadding key={item.title}>
                 <ListItem
-                  onClick={() => handleClick(index)}
+                  onClick={() => {
+                    handleClick(index);
+                    if (!lgUp) {
+                      props.onSidebarClose();
+                    }
+                  }}
                   button
                   component={NavLink}
                   to={item.href}
