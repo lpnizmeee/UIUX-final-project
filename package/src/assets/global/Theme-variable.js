@@ -15,27 +15,27 @@ const baseTheme = createTheme({
   direction: "ltr",
   palette: {
     primary: {
-      main: "#1a97f5",
+      main: "#194DD3",
       light: "#e6f4ff",
     },
     secondary: {
-      main: "#1e4db7",
+      main: "#4219D3",
     },
     background: {
       default: "#fff",
     },
     success: {
-      main: "#39cb7f",
+      main: "#27AE60",
       contrastText: "#ffffff",
     },
     danger: {
-      main: "#fc4b6c",
+      main: "#EB5757",
     },
     error: {
-      main: "#fc4b6c",
+      main: "#EB5757",
     },
     warning: {
-      main: "#fdd43f",
+      main: "#E2B93B",
       contrastText: "#ffffff",
     },
     text: {

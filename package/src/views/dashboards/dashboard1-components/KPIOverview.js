@@ -221,7 +221,7 @@ import { CheckboxesAutocomplete } from "../../../components/Forms/AutoComplete/C
 const KPIOverview = () => {
   const optionssalesoverview = {
     labels: ["Completed", "Not Completed"],
-    colors: ["#1a97f5", "#a7e3f4"],
+    colors: ["#1a97f5", "#BDBDBD"],
     chart: {
       toolbar: {
         show: false,
@@ -350,7 +350,7 @@ const KPIOverview = () => {
             >
               <Box
                 sx={{
-                  backgroundColor: "#a7e3f4",
+                  backgroundColor: "#BDBDBD",
                   borderRadius: "50%",
                   height: 8,
                   width: 8,
@@ -360,7 +360,7 @@ const KPIOverview = () => {
               <Typography
                 variant="h6"
                 sx={{
-                  color: "#a7e3f4",
+                  color: "#BDBDBD",
                 }}
               >
                 Not Completed (%)
