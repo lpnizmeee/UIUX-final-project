@@ -303,7 +303,7 @@ const Header = (props) => {
             Settings
           </MenuItem>
           <MenuItem onClick={() => {
-            window.location.href = "/#/login";
+            window.location.href = "/#/app";
           }}>
             <ListItemIcon>
               <LogoutOutlinedIcon fontSize="small" />

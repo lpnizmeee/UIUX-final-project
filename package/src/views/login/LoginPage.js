@@ -55,7 +55,7 @@ export default function SignIn() {
           <Box sx={{ display: "flex", alignItems: "Center", paddingBottom: 10 }}>
             <LogoIcon />
           </Box>
-          <Typography component="h1" variant="h5">
+          <Typography component="h1" variant="h4">
             Sign in
           </Typography>
           <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
