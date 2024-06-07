@@ -68,7 +68,7 @@ const ExTable = ({ assignment = assignmentex }) => {
           </TableCell>
           <TableCell>
             <Typography color="textSecondary" variant="h6">
-              Status
+              Priority
             </Typography>
           </TableCell>
           <TableCell align="right">

@@ -92,7 +92,7 @@ const DailyActivities = () => {
                 fontSize: "13px",
               }}
             >
-              Overview of Years
+              Overview of Weeks
             </Typography>
           </Box>
           <Box

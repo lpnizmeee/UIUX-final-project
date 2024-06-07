@@ -11,7 +11,7 @@ import {
 
 const KPICard = (props) => {
     const getChipColor = (chiptitle) => {
-        switch (chiptitle.toLowerCase()) {
+        switch (chiptitle >= 80 ? "high" : chiptitle >= 50 ? "medium" : "low") {
             case 'high':
                 return 'success.main';
             case 'medium':
@@ -37,7 +37,7 @@ const KPICard = (props) => {
                 </Box>
                 {props.chiptitle ? (
                     <Chip
-                        label={props.chiptitle}
+                        label={props.chiptitle + '%'}
                         size="small"
                         sx={{
                             ml: "auto",

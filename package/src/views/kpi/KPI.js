@@ -31,26 +31,26 @@ const initialKPIList = [
     {
         id: "1",
         title: "Work",
-        chiptitle: "High",
+        chiptitle: 80,
         assignment: ["Teaching", "Research", "Service"]
     },
     {
         id: "2",
         title: "Social Activities",
-        chiptitle: "Medium",
+        chiptitle: 70,
         assignment: ["Volunteer", "Blood Donation"]
 
     },
     {
         id: "3",
         title: "House Chores",
-        chiptitle: "Low",
+        chiptitle: 25,
         assignment: ["House Cleaning", "Cooking"]
     },
     {
         id: "4",
         title: "Charity",
-        chiptitle: "Medium",
+        chiptitle: 60,
         assignment: ["Volunteer", "Fundraising"]
     },
 ]
