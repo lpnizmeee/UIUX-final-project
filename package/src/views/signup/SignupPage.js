@@ -57,7 +57,7 @@ export default function SignUp() {
                     <Box sx={{ display: "flex", alignItems: "Center", paddingBottom: 10 }}>
                         <LogoIcon />
                     </Box>
-                    <Typography component="h1" variant="h5">
+                    <Typography component="h1" variant="h4">
                         Sign up
                     </Typography>
                     <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>

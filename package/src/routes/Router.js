@@ -19,17 +19,20 @@ import UpdateProgress from "../views/update-progress/UpdateProgress.js";
 import KPIDetailFake from "../views/kpi/KPIDetailFake.js";
 import Login from "../views/login/LoginPage.js";
 import SignUp from "../views/signup/SignupPage.js";
+import AddAssignment from "../views/kpi/AddAssignment.js";
+import LandingPage from "../views/landingPage/LandingPage.js";
 
 /*****Routes******/
 
 const ThemeRoutes = [
   { path: "/login", element: <Login /> },
   { path: "/signup", element: <SignUp /> },
+  { path: "/app", element: <LandingPage /> },
   {
     path: "/",
     element: <FullLayout />,
     children: [
-      { path: "/", element: <Navigate to="/login" /> },
+      { path: "/", element: <Navigate to="/app" /> },
       { path: "dashboards", exact: true, element: <Dashboard1 /> },
       { path: "tables/basic-table", element: <BasicTable /> },
       { path: "/form-layouts/form-layouts", element: <FormLayouts /> },
@@ -47,6 +50,7 @@ const ThemeRoutes = [
       { path: "/update-progress", element: <UpdateProgress /> },
       { path: "/personal", element: <Personal /> },
       { path: "/kpi/detail-add", element: <KPIDetailFake /> },
+      { path: "/kpi/add-assignment", element: <AddAssignment /> },
     ],
   },
 ];

@@ -16,6 +16,7 @@ const AssignmentCheckbox = ({ list, title }) => {
             options={list}
             disableCloseOnSelect
             getOptionLabel={(option) => option.title}
+            defaultValue={[list[4], list[7], list[6]]}
             sx={{ mb: 1 }}
             renderOption={(props, option, { selected }) => (
                 <li {...props}>

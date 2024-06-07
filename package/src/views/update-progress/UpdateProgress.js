@@ -4,10 +4,9 @@ import moment from 'moment';
 import { Box, Dialog, DialogTitle, DialogContent, TextField, DialogActions, Button } from '@mui/material';
 import { DateTimePicker } from '@mui/lab';
 import 'react-big-calendar/lib/css/react-big-calendar.css';
+import { FormControl, FormControlLabel, Radio, RadioGroup } from '@mui/material';
 
 import Autocomplete from '@mui/material/Autocomplete';
-
-import BaseCard from "../../components/BaseCard/BaseCard";
 
 const localizer = momentLocalizer(moment);
 
@@ -29,6 +28,11 @@ const UpdateProgress = (props) => {
     const [open, setOpen] = useState(false);
     const [newEvent, setNewEvent] = useState({});
 
+    const [selectedKPI, setSelectedKPI] = useState(false);
+    const [selectedAssignment, setSelectedAssignment] = useState(false);
+    const [selectedTask, setSelectedTask] = useState(false);
+    const [value, setValue] = React.useState("");
+
     const handleSelect = ({ start, end }) => {
         setNewEvent({ start, end });
         setOpen(true);
@@ -44,7 +48,16 @@ const UpdateProgress = (props) => {
                     title,
                 },
             ]);
+        setSelectedKPI(false);
+        setSelectedAssignment(false);
+        setSelectedTask(false);
+        setValue('');
     };
+
+    const handleChangeComplete = (event) => {
+        setValue(event.target.value);
+    }
+
 
     return (
         <Box
@@ -64,19 +77,20 @@ const UpdateProgress = (props) => {
             />
             <Dialog open={open} onClose={() => handleClose('')}>
                 <DialogTitle sx={{ minWidth: '500px' }}>Add Task Progress</DialogTitle>
-                <DialogContent>
+                <DialogContent sx={{ minHeight: '20vh' }}>
                     <Autocomplete
                         disablePortal
                         sx={
                             {
-                                marginBottom: 1
+                                marginBottom: 1,
+                                marginTop: 1
                             }
                         }
-                        options={top100Films}
+                        options={kpiList}
                         autoFocus
                         margin="dense"
-                        id="title"
-                        label="Task Title"
+                        id="KPI"
+                        label="KPI Title"
                         fullWidth
                         onKeyPress={(ev) => {
                             if (ev.key === 'Enter') {
@@ -84,48 +98,122 @@ const UpdateProgress = (props) => {
                                 ev.preventDefault();
                             }
                         }}
-                        renderInput={(params) => <TextField {...params} label="Task title" />}
-                    />
-                    {/* <TextField
-                        autoFocus
-                        margin="dense"
-                        id="title"
-                        label="Task Title"
-                        type="text"
-                        fullWidth
-                        onKeyPress={(ev) => {
-                            if (ev.key === 'Enter') {
-                                handleClose(ev.target.value);
-                                ev.preventDefault();
-                            }
+                        onChange={(event) => {
+                            event.preventDefault();
+                            setSelectedKPI(true);
                         }}
-                    /> */}
-                    <TextField
-                        margin="dense"
-                        id="quantity"
-                        label="Quantity"
-                        type="text"
-                        defaultValue={(newEvent.end - newEvent.start) / 3600000}
-                        fullWidth
+                        renderInput={(params) => <TextField {...params} label="KPI title" />}
                     />
-                    <DateTimePicker
-                        label="Start Time"
-                        value={newEvent.start}
-                        onChange={(newValue) => {
-                            setNewEvent({ ...newEvent, start: newValue.toDate() });
-                        }}
-                    />
-                    <DateTimePicker
-                        label="End Time"
-                        value={newEvent.end}
-                        onChange={(newValue) => {
-                            setNewEvent({ ...newEvent, end: newValue.toDate() });
-                        }}
-                    />
+                    {
+                        selectedKPI && (
+                            <Autocomplete
+                                disablePortal
+                                sx={
+                                    {
+                                        marginBottom: 1
+                                    }
+                                }
+                                options={assignmentList}
+                                autoFocus
+                                margin="dense"
+                                id="Assignment"
+                                label="Assignment Title"
+                                fullWidth
+                                onKeyPress={(ev) => {
+                                    if (ev.key === 'Enter') {
+                                        handleClose(ev.target.value);
+                                        ev.preventDefault();
+                                    }
+                                }}
+                                onChange={(event) => {
+                                    event.preventDefault();
+                                    setSelectedAssignment(true);
+                                }}
+                                renderInput={(params) => <TextField {...params} label="Assignment title" />}
+                            />
+                        )
+                    }
+                    {
+                        selectedAssignment && (
+                            <Autocomplete
+                                disablePortal
+                                sx={
+                                    {
+                                        marginBottom: 1
+                                    }
+                                }
+                                options={taskList}
+                                autoFocus
+                                margin="dense"
+                                id="task"
+                                label="Task Title"
+                                fullWidth
+                                onKeyPress={(ev) => {
+                                    if (ev.key === 'Enter') {
+                                        handleClose(ev.target.value);
+                                        ev.preventDefault();
+                                    }
+                                }}
+                                onChange={(event) => {
+                                    event.preventDefault();
+                                    setSelectedTask(true);
+                                }}
+                                renderInput={(params) => <TextField {...params} label="Task title" />}
+                            />
+                        )
+                    }
+                    {
+                        selectedTask && (
+                            <FormControl component="fieldset">
+                                <RadioGroup
+                                    aria-label="gender"
+                                    name="gender1"
+                                    value={value}
+                                    onChange={handleChangeComplete}
+                                >
+                                    <FormControlLabel
+                                        value="completed"
+                                        control={<Radio />}
+                                        label="Completed"
+                                    />
+                                    <FormControlLabel
+                                        value="notCompleted"
+                                        control={<Radio />}
+                                        label="Not Completed"
+                                    />
+                                </RadioGroup>
+                            </FormControl>
+                        )
+                    }
+                    {
+                        value === "completed" && (
+                            <Box>
+                                <TextField
+                                    margin="dense"
+                                    id="unit"
+                                    label="Unit"
+                                    type="text"
+                                    defaultValue="Hour"
+                                    fullWidth
+                                    InputProps={{
+                                        readOnly: true,
+                                    }}
+                                />
+                                <TextField
+                                    margin="dense"
+                                    id="quantity"
+                                    label="Quantity"
+                                    type="text"
+                                    defaultValue={(newEvent.end - newEvent.start) / 3600000}
+                                    fullWidth
+                                />
+                            </Box>
+                        )
+                    }
                 </DialogContent>
                 <DialogActions>
                     <Button onClick={() => handleClose('')}>Cancel</Button>
-                    <Button onClick={(ev) => handleClose(document.getElementById('title').value)}>OK</Button>
+                    <Button onClick={(ev) => handleClose(document.getElementById('task').value)}>OK</Button>
                 </DialogActions>
             </Dialog>
         </Box>
@@ -133,17 +221,24 @@ const UpdateProgress = (props) => {
 };
 
 // Top 100 films as rated by IMDb users. http://www.imdb.com/chart/top
-const top100Films = [
+const kpiList = [
+    { label: "Work" },
+    { label: "Social Activities" },
+    { label: "House Chores" },
+    { label: "Charity" },
+    { label: "Improve Knowledge" },
+];
+
+const assignmentList = [
+    { label: "Teaching" },
+    { label: "Research" },
+    { label: "Service" },
+];
+
+const taskList = [
     { label: "Number of Theory hours" },
     { label: "Number of Exercise hours" },
-    { label: "Number of Practice/Experiment hours" },
-    { label: "Article published in domestic science magazine" },
-    { label: "Article published in the international science magazine" },
-    { label: "State-level pilot production projects and topics" },
-    { label: "National-level pilot production projects and topics" },
-    { label: "International-level pilot production projects and topics" },
-    { label: "Number of patents obtained" },
-    { label: "Number of patents applied" },
+    { label: "Number of Practice hours" },
 ];
 
 export default UpdateProgress;
