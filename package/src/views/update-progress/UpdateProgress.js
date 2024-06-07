@@ -5,6 +5,8 @@ import { Box, Dialog, DialogTitle, DialogContent, TextField, DialogActions, Butt
 import { DateTimePicker } from '@mui/lab';
 import 'react-big-calendar/lib/css/react-big-calendar.css';
 import { FormControl, FormControlLabel, Radio, RadioGroup } from '@mui/material';
+import { Typography } from '@mui/material';
+import { Link } from 'react-router-dom';
 
 import Autocomplete from '@mui/material/Autocomplete';
 
@@ -16,12 +18,12 @@ const UpdateProgress = (props) => {
             'title': 'Article published in domestic science magazine',
             'allDay': true,
             'start': new Date(2024, 4, 30),
-            'end': new Date(2024, 4, 31)
+            'end': new Date(2024, 5, 6)
         },
         {
             'title': 'Instruct Graduation Research',
-            'start': new Date(2024, 4, 31),
-            'end': new Date(2024, 5, 1)
+            'start': new Date(2024, 5, 8),
+            'end': new Date(2024, 5, 18)
         },
     ]);
 
@@ -63,16 +65,18 @@ const UpdateProgress = (props) => {
         <Box
             sx={{
                 minHeight: '100%',
-                px: 2,
             }}
         >
+            <Typography paddingLeft={2} variant="h3" sx={{ marginBottom: "2" }} gutterBottom>
+                <Link to="/update-progress" style={{ color: 'inherit', textDecoration: 'none' }}>Update Progress</Link>
+            </Typography>
             <Calendar
                 selectable
                 localizer={localizer}
                 events={events}
                 startAccessor="start"
                 endAccessor="end"
-                style={{ height: '75vh', fontFamily: "'DM Sans', sans-serif" }}
+                style={{ height: '75vh', fontFamily: "'DM Sans', sans-serif", paddingLeft: "1rem", paddingRight: "1rem" }}
                 onSelectSlot={handleSelect}
             />
             <Dialog open={open} onClose={() => handleClose('')}>
