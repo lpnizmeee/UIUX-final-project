@@ -221,7 +221,7 @@ import { CheckboxesAutocomplete } from "../../../components/Forms/AutoComplete/C
 const KPIOverview = () => {
   const optionssalesoverview = {
     labels: ["Completed", "Not Completed"],
-    colors: ["#1a97f5", "#BDBDBD"],
+    colors: ["#194DD3", "#e6f4ff"],
     chart: {
       toolbar: {
         show: false,
@@ -346,11 +346,20 @@ const KPIOverview = () => {
                 display: "flex",
                 alignItems: "center",
                 marginLeft: "10px",
+                ":hover": {
+                  "& .hoverable1": {
+                    backgroundColor: "#1a97f5",
+                  },
+                  "& .hoverable2": {
+                    color: "#1a97f5",
+                  },
+                }
               }}
             >
               <Box
+                className="hoverable1"
                 sx={{
-                  backgroundColor: "#BDBDBD",
+                  backgroundColor: "primary.light",
                   borderRadius: "50%",
                   height: 8,
                   width: 8,
@@ -358,10 +367,12 @@ const KPIOverview = () => {
                 }}
               />
               <Typography
+                className="hoverable2"
                 variant="h6"
                 sx={{
-                  color: "#BDBDBD",
-                }}
+                  color: "primary.light",
+                }
+                }
               >
                 Not Completed (%)
               </Typography>
@@ -407,7 +418,7 @@ const KPIOverview = () => {
           )}
         </Box>
       </CardContent>
-    </Card>
+    </Card >
   );
 };
 

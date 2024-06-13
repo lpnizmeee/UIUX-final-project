@@ -22,22 +22,22 @@ const KPIDetailTable = (props) => {
             <TableHead>
                 <TableRow>
                     <TableCell style={{ width: '10%' }}>
-                        <Typography color="textSecondary" variant="h6">
+                        <Typography paddingLeft={"1rem"} color="textSecondary" variant="h6">
                             Id
                         </Typography>
                     </TableCell>
                     <TableCell style={{ width: '50%' }}>
-                        <Typography color="textSecondary" variant="h6">
+                        <Typography paddingLeft={"1rem"} color="textSecondary" variant="h6">
                             Name
                         </Typography>
                     </TableCell>
                     <TableCell style={{ width: '15%' }}>
-                        <Typography color="textSecondary" variant="h6">
+                        <Typography paddingLeft={"1rem"} color="textSecondary" variant="h6">
                             Quantity status
                         </Typography>
                     </TableCell>
                     <TableCell style={{ width: '15%' }}>
-                        <Typography color="textSecondary" variant="h6">
+                        <Typography paddingLeft={"1rem"} color="textSecondary" variant="h6">
                             Unit
                         </Typography>
                     </TableCell>
@@ -74,6 +74,7 @@ const KPIDetailTable = (props) => {
                                         sx={{
                                             fontWeight: "300",
                                         }}
+                                        paddingLeft={"1rem"}
                                     >
                                         {product.name}
                                     </Typography>
@@ -81,12 +82,12 @@ const KPIDetailTable = (props) => {
                             </Box>
                         </TableCell>
                         <TableCell>
-                            <Typography color="textSecondary" variant="h6">
+                            <Typography color="textSecondary" paddingLeft={"1rem"} variant="h6">
                                 {product.quantity}
                             </Typography>
                         </TableCell>
                         <TableCell >
-                            <Typography variant="h6">{product.unit}</Typography>
+                            <Typography paddingLeft={"1rem"} variant="h6">{product.unit}</Typography>
                         </TableCell>
                         <TableCell align="right">
                             <Chip

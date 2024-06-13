@@ -12,7 +12,7 @@ import Chip from "@mui/material/Chip";
 import Button from "@mui/material/Button";
 import { useNavigate } from 'react-router-dom';
 import download from 'downloadjs';
-
+import { useMediaQuery } from '@mui/material';
 import SpeedDial from '@mui/material/SpeedDial';
 import SpeedDialIcon from '@mui/material/SpeedDialIcon';
 import SpeedDialAction from '@mui/material/SpeedDialAction';
@@ -122,6 +122,7 @@ const priorities = [
 const KPIDetail = () => {
     const [openAssignmentId, setOpenAssignmentId] = useState(null);
     const [priorityIndex, setPriorityIndex] = useState(0);
+    const matches = useMediaQuery(theme => theme.breakpoints.up('sm'));
 
     const navigate = useNavigate();
 
@@ -231,69 +232,75 @@ const KPIDetail = () => {
                             <Box>
                                 <KPIDetailTable list={assignment} />
                                 {openAssignmentId === assignment.id && (
-                                    <Table
-                                        aria-label="simple table"
-                                        sx={{
-                                            mt: 0,
-                                            whiteSpace: "nowrap",
-                                        }}
-                                    >
-                                        <TableBody>
-                                            <TableRow>
-                                                <TableCell style={{ width: '10%' }}>
-                                                    <Typography
-                                                        sx={{
-                                                            fontSize: "15px",
-                                                            fontWeight: "300",
-                                                        }}
-                                                    >
-                                                        4
-                                                    </Typography>
-                                                </TableCell>
-                                                <TableCell style={{ width: '50%' }}>
-                                                    <TextField sx={{
-                                                        fontSize: "10px",
-                                                    }}>
-                                                    </TextField>
-                                                </TableCell>
-                                                <TableCell style={{ width: '15%' }}>
-                                                    <TextField>
-                                                    </TextField>
-                                                </TableCell>
-                                                <TableCell style={{ width: '15%' }}>
-                                                    <TextField>
-                                                    </TextField>
-                                                </TableCell>
-                                                <TableCell align="right" style={{ width: '10%' }}>
-                                                    <Chip
-                                                        sx={{
-                                                            pl: "4px",
-                                                            pr: "4px",
-                                                            backgroundColor: priorities[priorityIndex].color,
-                                                            color: "#fff",
-                                                            '&:hover': {
-                                                                backgroundColor: priorities[priorityIndex].hoverColor,
-                                                            },
-                                                        }}
-                                                        onClick={handlePriorityChange}
-                                                        size="small"
-                                                        label={priorities[priorityIndex].label}
-                                                    ></Chip>
-                                                </TableCell>
-                                            </TableRow>
-                                        </TableBody>
-                                        <Button sx={{ mt: 1, ml: 1 }} color="primary" variant="contained" onClick={handleSubmit}>
-                                            Submit
-                                        </Button>
-                                    </Table>
-
+                                    matches ? (
+                                        <Table
+                                            aria-label="simple table"
+                                            sx={{
+                                                mt: 0,
+                                                whiteSpace: "nowrap",
+                                                minWidth: 650,
+                                            }}
+                                        >
+                                            <TableBody>
+                                                <TableRow>
+                                                    <TableCell style={{ width: '10%' }}>
+                                                        <Typography
+                                                            sx={{
+                                                                fontSize: "15px",
+                                                                fontWeight: "300",
+                                                            }}
+                                                        >
+                                                            4
+                                                        </Typography>
+                                                    </TableCell>
+                                                    <TableCell style={{ width: '50%' }}>
+                                                        <TextField sx={{
+                                                            fontSize: "10px",
+                                                        }}>
+                                                        </TextField>
+                                                    </TableCell>
+                                                    <TableCell style={{ width: '15%' }}>
+                                                        <TextField>
+                                                        </TextField>
+                                                    </TableCell>
+                                                    <TableCell style={{ width: '15%' }}>
+                                                        <TextField>
+                                                        </TextField>
+                                                    </TableCell>
+                                                    <TableCell align="right" style={{ width: '10%' }}>
+                                                        <Chip
+                                                            sx={{
+                                                                pl: "4px",
+                                                                pr: "4px",
+                                                                backgroundColor: priorities[priorityIndex].color,
+                                                                color: "#fff",
+                                                                '&:hover': {
+                                                                    backgroundColor: priorities[priorityIndex].hoverColor,
+                                                                },
+                                                            }}
+                                                            onClick={handlePriorityChange}
+                                                            size="small"
+                                                            label={priorities[priorityIndex].label}
+                                                        ></Chip>
+                                                    </TableCell>
+                                                </TableRow>
+                                            </TableBody>
+                                            <Button sx={{ mt: 1, ml: 1 }} color="primary" variant="contained" onClick={handleSubmit}>
+                                                Submit
+                                            </Button>
+                                        </Table>
+                                    ) : (
+                                        <div></div>
+                                    )
                                 )}
+
                             </Box>
                         </Box>
                     </CardContent>
                 </Card>
-            ))}
-        </Box>
+            ))
+            }
+        </Box >
     );
 }
 

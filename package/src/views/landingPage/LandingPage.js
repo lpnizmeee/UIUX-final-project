@@ -118,13 +118,9 @@ const LandingPage = () => {
                         <h1 className="px-6 text-lg text-gray-600 font-inter">
                             Smart KPIs Manager for everyone
                         </h1>
-                        <p className="mt-5 text-4xl font-bold leading-tight text-gray-900 sm:leading-tight sm:text-5xl lg:text-6xl lg:leading-tight font-pj">
-                            No
-                            <span className="relative inline-flex sm:inline px-2">
-                                <span className="bg-gradient-to-r from-[#44BCFF] via-[#FF44EC] to-[#FF675E] blur-lg filter opacity-30 w-full h-full absolute inset-0"></span>
-                                <span className="relative">Regret</span>
-                            </span>
-                            with
+                        <p className="mt-5 text-4xl font-bold leading-tight sm:max-w-3xl text-gray-900 sm:leading-tight sm:text-5xl lg:text-6xl lg:leading-tight font-pj">
+                            No Regret with
+                            <br />
                             <span className="relative inline-flex sm:inline px-2">
                                 <span className="bg-gradient-to-r from-[#44BCFF] via-[#FF44EC] to-[#FF675E] blur-lg filter opacity-30 w-full h-full absolute inset-0"></span>
                                 <span className="relative">Regress</span>
@@ -170,11 +166,11 @@ const LandingPage = () => {
 
                 <div className="pb-12 bg-white">
                     <div className="relative">
-                        <div className="absolute inset-0 h-2/3 bg-white"></div>
+                        <div className="absolute inset-0 bg-white"></div>
                         <div className="relative mx-0">
-                            <div className="lg:max-w-5xl lg:mx-auto">
+                            <div className="lg:max-w-3xl lg:mx-auto">
                                 <img
-                                    className="transform scale-90"
+                                    className="transform scale-75"
                                     src={landing_page}
                                     alt=""
 

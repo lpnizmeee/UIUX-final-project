@@ -37,7 +37,7 @@ export default function ChatBot({ showChat, setShowChat }) {
         }}
         onClick={handleFabClick}
       >
-        AI
+        GPT
       </Fab>
       {showChat && <ChatScreen chatLog={chatLog} insertChat={insertChat} />}
     </Box>

@@ -164,7 +164,7 @@ const ProductPerformance = () => {
               >
                 <MenuItem value={"Work"}>Work</MenuItem>
                 <MenuItem value={"Social Activities"}>Social Activities</MenuItem>
-                <MenuItem value={"House Chores"}>Charity</MenuItem>
+                <MenuItem value={"House Chores"}>House Chores</MenuItem>
               </Select>
             </FormControl>
           </Box>

@@ -25,6 +25,7 @@ import {
   Avatar,
   Divider,
   ListItemIcon,
+  Typography,
 } from "@mui/material";
 
 import tht from "../../../assets/images/users/tht.jpg";
@@ -182,7 +183,7 @@ const Header = (props) => {
           aria-haspopup="true"
           onClick={handleClick}
         >
-          <Badge color="secondary" badgeContent={badgeContent}><NotificationsNoneOutlinedIcon width="20" height="20" /></Badge>
+          <Badge color="primary" badgeContent={badgeContent}><NotificationsNoneOutlinedIcon width="20" height="20" /></Badge>
         </IconButton>
         <Menu
           id="notification-menu"
@@ -200,23 +201,23 @@ const Header = (props) => {
             },
           }}
         >
-          <MenuItem onClick={handleClose}>
-            <Icon color="warning" style={{ marginRight: '10px' }}>
-              <ErrorOutlineOutlinedIcon></ErrorOutlineOutlinedIcon>
+          <MenuItem onClick={handleClose} style={{ display: 'flex', alignItems: 'center' }}>
+            <Icon color="warning" style={{ marginRight: '10px', minHeight: '2rem' }}>
+              <ErrorOutlineOutlinedIcon />
             </Icon>
-            Today you have 3 deadlines
+            <Typography variant="body1" style={{ flexGrow: 1 }}>Today you have 3 deadlines</Typography>
           </MenuItem>
-          <MenuItem onClick={handleClose}>
-            <Icon color="success" style={{ marginRight: '10px' }}>
-              <CheckCircleOutlineIcon></CheckCircleOutlineIcon>
+          <MenuItem onClick={handleClose} style={{ display: 'flex', alignItems: 'center' }}>
+            <Icon color="success" style={{ marginRight: '10px', minHeight: '2rem' }}>
+              <CheckCircleOutlineIcon />
             </Icon>
-            You have achieved your teaching KPI
+            <Typography variant="body1" style={{ flexGrow: 1 }}>You have achieved your teaching KPI</Typography>
           </MenuItem>
-          <MenuItem onClick={handleClose}>
-            <Icon color="error" style={{ marginRight: '10px' }}>
-              <CancelOutlinedIcon></CancelOutlinedIcon>
+          <MenuItem onClick={handleClose} style={{ display: 'flex', alignItems: 'center' }}>
+            <Icon color="error" style={{ marginRight: '10px', minHeight: '2rem' }}>
+              <CancelOutlinedIcon />
             </Icon>
-            You have missed 1 deadline
+            <Typography variant="body1" style={{ flexGrow: 1 }}>You have missed 1 deadline</Typography>
           </MenuItem>
         </Menu>
         {/* ------------------------------------------- */}

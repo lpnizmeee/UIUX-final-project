@@ -56,7 +56,7 @@ const Setting = () => {
         <Grid item>
           <Button
             variant="contained"
-            color="secondary"
+            color="primary"
             onClick={handleDeleteData}
           >
             Delete Personalization Data
