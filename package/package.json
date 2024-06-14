@@ -26,6 +26,7 @@
     "react-big-calendar": "^1.12.2",
     "react-dom": "18.2.0",
     "react-router-dom": "6.12.1",
+    "react-toastify": "^10.0.5",
     "styled-components": "5.3.11",
     "stylis-plugin-rtl": "2.1.1",
     "web-vitals": "2.1.4"

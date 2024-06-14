@@ -61,7 +61,7 @@ const initialKPIList = [
     },
 ]
 
-const KPI = () => {
+const KPIFake = () => {
     const [KPIList, setKPIList] = useState(initialKPIList);
     const navigate = useNavigate();
     const [open, setOpen] = useState(false);
@@ -265,4 +265,4 @@ const KPI = () => {
     );
 }
 
-export default KPI;
+export default KPIFake;

@@ -12,12 +12,15 @@ import Chip from "@mui/material/Chip";
 import Button from "@mui/material/Button";
 import { useNavigate } from 'react-router-dom';
 import download from 'downloadjs';
-
+import { useMediaQuery } from '@mui/material';
 import SpeedDial from '@mui/material/SpeedDial';
 import SpeedDialIcon from '@mui/material/SpeedDialIcon';
 import SpeedDialAction from '@mui/material/SpeedDialAction';
 import GetAppIcon from '@mui/icons-material/GetApp';
 import EditIcon from '@mui/icons-material/Edit';
+import Dialog from '@mui/material/Dialog';
+import DialogTitle from '@mui/material/DialogTitle';
+import DialogContent from '@mui/material/DialogContent';
 
 
 const actions = [
@@ -127,9 +130,11 @@ const priorities = [
 ];
 
 
-const KPIDetail = () => {
+const KPIDetailFake = () => {
     const [openAssignmentId, setOpenAssignmentId] = useState(null);
     const [priorityIndex, setPriorityIndex] = useState(0);
+    const matches = useMediaQuery(theme => theme.breakpoints.up('sm'));
+    const [open, setOpen] = useState(false);
 
     const navigate = useNavigate();
 
@@ -154,9 +159,13 @@ const KPIDetail = () => {
         }
     };
 
+    const handleClose = (title) => {
+        setOpen(false);
+    };
 
     const handleAddNewTask = (id) => {
         setOpenAssignmentId(id);
+        setOpen(true);
     }
 
     const handleSubmit = () => {
@@ -239,40 +248,87 @@ const KPIDetail = () => {
                             <Box>
                                 <KPIDetailTable list={assignment} />
                                 {openAssignmentId === assignment.id && (
-                                    <Table
-                                        aria-label="simple table"
-                                        sx={{
-                                            mt: 0,
-                                            whiteSpace: "nowrap",
-                                        }}
-                                    >
-                                        <TableBody>
-                                            <TableRow>
-                                                <TableCell style={{ width: '10%' }}>
-                                                    <Typography
-                                                        sx={{
-                                                            fontSize: "15px",
-                                                            fontWeight: "300",
-                                                        }}
-                                                    >
-                                                        4
-                                                    </Typography>
-                                                </TableCell>
-                                                <TableCell style={{ width: '50%' }}>
-                                                    <TextField sx={{
-                                                        fontSize: "10px",
-                                                    }}>
-                                                    </TextField>
-                                                </TableCell>
-                                                <TableCell style={{ width: '15%' }}>
-                                                    <TextField>
-                                                    </TextField>
-                                                </TableCell>
-                                                <TableCell style={{ width: '15%' }}>
-                                                    <TextField>
-                                                    </TextField>
-                                                </TableCell>
-                                                <TableCell align="right" style={{ width: '10%' }}>
+                                    matches ? (
+                                        <Table
+                                            aria-label="simple table"
+                                            sx={{
+                                                mt: 0,
+                                                whiteSpace: "nowrap",
+                                                minWidth: 650,
+                                            }}
+                                        >
+                                            <TableBody>
+                                                <TableRow>
+                                                    <TableCell style={{ width: '10%' }}>
+                                                        <Typography
+                                                            sx={{
+                                                                fontSize: "15px",
+                                                                fontWeight: "300",
+                                                            }}
+                                                        >
+                                                            4
+                                                        </Typography>
+                                                    </TableCell>
+                                                    <TableCell style={{ width: '50%' }}>
+                                                        <TextField sx={{
+                                                            fontSize: "10px",
+                                                        }}>
+                                                        </TextField>
+                                                    </TableCell>
+                                                    <TableCell style={{ width: '15%' }}>
+                                                        <TextField>
+                                                        </TextField>
+                                                    </TableCell>
+                                                    <TableCell style={{ width: '15%' }}>
+                                                        <TextField>
+                                                        </TextField>
+                                                    </TableCell>
+                                                    <TableCell align="right" style={{ width: '10%' }}>
+                                                        <Chip
+                                                            sx={{
+                                                                pl: "4px",
+                                                                pr: "4px",
+                                                                backgroundColor: priorities[priorityIndex].color,
+                                                                color: "#fff",
+                                                                '&:hover': {
+                                                                    backgroundColor: priorities[priorityIndex].hoverColor,
+                                                                },
+                                                            }}
+                                                            onClick={handlePriorityChange}
+                                                            size="small"
+                                                            label={priorities[priorityIndex].label}
+                                                        ></Chip>
+                                                    </TableCell>
+                                                </TableRow>
+                                            </TableBody>
+                                            <Button sx={{ mt: 1, ml: 1 }} color="primary" variant="contained" onClick={handleSubmit}>
+                                                Submit
+                                            </Button>
+                                        </Table>
+                                    ) : (
+                                        <Dialog open={open} onClose={() => handleClose('')}>
+                                            <DialogTitle sx={{ minWidth: '500px' }}>Add New Task</DialogTitle>
+                                            <DialogContent sx={{ minHeight: '20vh' }}>
+                                                <TextField
+                                                    fullWidth
+                                                    label="Task Name"
+                                                    variant="outlined"
+                                                    margin="normal"
+                                                />
+                                                <TextField
+                                                    fullWidth
+                                                    label="Quantity"
+                                                    variant="outlined"
+                                                    margin="normal"
+                                                />
+                                                <TextField
+                                                    fullWidth
+                                                    label="Unit"
+                                                    variant="outlined"
+                                                    margin="normal"
+                                                />
+                                                <Box display="flex" justifyContent="space-around" paddingTop={2}>
+                                                    <Typography>Priority</Typography>
                                                     <Chip
                                                         sx={{
                                                             pl: "4px",
@@ -284,25 +340,26 @@ const KPIDetail = () => {
                                                             },
                                                         }}
                                                         onClick={handlePriorityChange}
-                                                        size="small"
+                                                        size="big"
                                                         label={priorities[priorityIndex].label}
                                                     ></Chip>
-                                                </TableCell>
-                                            </TableRow>
-                                        </TableBody>
-                                        <Button sx={{ mt: 1, ml: 1 }} color="primary" variant="contained" onClick={handleSubmit}>
-                                            Submit
-                                        </Button>
-                                    </Table>
-
+                                                </Box>
+                                                <Button sx={{ mt: 1, ml: 1 }} color="primary" variant="contained" onClick={handleSubmit}>
+                                                    Submit
+                                                </Button>
+                                            </DialogContent>
+                                        </Dialog>
+                                    )
                                 )}
+
                             </Box>
                         </Box>
                     </CardContent>
                 </Card>
-            ))}
-        </Box>
+            ))
+            }
+        </Box >
     );
 }
 
-export default KPIDetail;
+export default KPIDetailFake;
