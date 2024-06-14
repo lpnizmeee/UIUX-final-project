@@ -11,6 +11,8 @@ import { Link } from 'react-router-dom';
 import Autocomplete from '@mui/material/Autocomplete';
 import InputDateTime from './InputDateTime';
 import TaskCheck from './TaskCheck';
+import { useMediaQuery } from '@mui/material';
+
 
 const localizer = momentLocalizer(moment);
 
@@ -28,7 +30,7 @@ const UpdateProgress = (props) => {
             'end': new Date(2024, 5, 18)
         },
     ]);
-
+    const matches = useMediaQuery(theme => theme.breakpoints.up('sm'));
     const [open, setOpen] = useState(false);
     const [newEvent, setNewEvent] = useState({});
 
@@ -105,7 +107,7 @@ const UpdateProgress = (props) => {
                     events={events}
                     startAccessor="start"
                     endAccessor="end"
-                    style={{ height: '48vh', fontFamily: "'DM Sans', sans-serif" }}
+                    style={{ height: matches ? "48vh" : "75vh", fontFamily: "'DM Sans', sans-serif" }}
                     onSelectSlot={handleSelect}
                     eventPropGetter={eventPropGetter}
                 />

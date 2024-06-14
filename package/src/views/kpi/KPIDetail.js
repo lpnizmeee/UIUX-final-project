@@ -18,6 +18,9 @@ import SpeedDialIcon from '@mui/material/SpeedDialIcon';
 import SpeedDialAction from '@mui/material/SpeedDialAction';
 import GetAppIcon from '@mui/icons-material/GetApp';
 import EditIcon from '@mui/icons-material/Edit';
+import Dialog from '@mui/material/Dialog';
+import DialogTitle from '@mui/material/DialogTitle';
+import DialogContent from '@mui/material/DialogContent';
 
 
 const actions = [
@@ -123,6 +126,7 @@ const KPIDetail = () => {
     const [openAssignmentId, setOpenAssignmentId] = useState(null);
     const [priorityIndex, setPriorityIndex] = useState(0);
     const matches = useMediaQuery(theme => theme.breakpoints.up('sm'));
+    const [open, setOpen] = useState(false);
 
     const navigate = useNavigate();
 
@@ -147,9 +151,13 @@ const KPIDetail = () => {
         }
     };
 
+    const handleClose = (title) => {
+        setOpen(false);
+    };
 
     const handleAddNewTask = (id) => {
         setOpenAssignmentId(id);
+        setOpen(true);
     }
 
     const handleSubmit = () => {
@@ -290,7 +298,49 @@ const KPIDetail = () => {
                                             </Button>
                                         </Table>
                                     ) : (
-                                        <div></div>
+                                        <Dialog open={open} onClose={() => handleClose('')}>
+                                            <DialogTitle sx={{ minWidth: '500px' }}>Add New Task</DialogTitle>
+                                            <DialogContent sx={{ minHeight: '20vh' }}>
+                                                <TextField
+                                                    fullWidth
+                                                    label="Task Name"
+                                                    variant="outlined"
+                                                    margin="normal"
+                                                />
+                                                <TextField
+                                                    fullWidth
+                                                    label="Quantity"
+                                                    variant="outlined"
+                                                    margin="normal"
+                                                />
+                                                <TextField
+                                                    fullWidth
+                                                    label="Unit"
+                                                    variant="outlined"
+                                                    margin="normal"
+                                                />
+                                                <Box display="flex" justifyContent="space-around" paddingTop={2}>
+                                                    <Typography>Priority</Typography>
+                                                    <Chip
+                                                        sx={{
+                                                            pl: "4px",
+                                                            pr: "4px",
+                                                            backgroundColor: priorities[priorityIndex].color,
+                                                            color: "#fff",
+                                                            '&:hover': {
+                                                                backgroundColor: priorities[priorityIndex].hoverColor,
+                                                            },
+                                                        }}
+                                                        onClick={handlePriorityChange}
+                                                        size="big"
+                                                        label={priorities[priorityIndex].label}
+                                                    ></Chip>
+                                                </Box>
+                                                <Button sx={{ mt: 1, ml: 1 }} color="primary" variant="contained" onClick={handleSubmit}>
+                                                    Submit
+                                                </Button>
+                                            </DialogContent>
+                                        </Dialog>
                                     )
                                 )}
 
